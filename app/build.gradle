@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
-        applicationId "com.csit.dtvs"
+        applicationId "com.csit.data_transfer_via_sound"
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
@@ -26,5 +26,4 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }
