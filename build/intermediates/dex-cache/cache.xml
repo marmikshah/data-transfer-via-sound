@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_ef72acbfd5164524db0567431d24902b537da3bc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_bc39845d3d0227281cf34588f51e1f4450057c61/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="320ebbd97d42141d84d2443c2fc59ee4ec14a471">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_85f251687355baec9d387512d6a80cf201527845/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="de688062f3df8e4ba7ebfa3567673635b824701b">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_18582788041a57a6d6aaef05e1f19a2b0c10f351/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_f5de8cd7297928f0473e756738923d245118ac9e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_7ad8537713cb8b9b9c5837f9d8cf4c6311502bdf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_e90cce69c9480897edbebfd54f0fb25082d6bed0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_789a05a354d22b93bf199384dc2ab3b79f4846a2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_fecce7cca361cca6ac72b06cfb668d05e130138d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_4abc688f6657dc49020272491f049dd29a204b2b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_b738075c06ea871691c27902654017692d9e4857/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_3b91a4022adf11c8a7d4d1e2641492335a651b8c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_b67173568b3bfb49b739a2c2e83872b63327ca75/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_1b0209a287217a451146a28dcee49760f34a0ef5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_5e9d20a2912ba593abe795315d0614f3585d68f3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_4b263b6029e158c1f7026125c3d61979097b0e35/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_eded0d6918e2d344422ce03f598bb1452169812c/classes.dex" />
+    </item>
+
+</items>
