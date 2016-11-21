@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="320ebbd97d42141d84d2443c2fc59ee4ec14a471">
+        sha1="06db54d7b884e10f239b1a941383a98351c4226d">
         <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_85f251687355baec9d387512d6a80cf201527845/classes.dex" />
     </item>
     <item
@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="de688062f3df8e4ba7ebfa3567673635b824701b">
+        sha1="dd5059f65ece2c4e5a2ebbc6a8344a77e44a6ee9">
         <dex dex="/Users/kaizoku/Documents/Android Development/Data-Transfer-Via-Sound/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_18582788041a57a6d6aaef05e1f19a2b0c10f351/classes.dex" />
     </item>
     <item

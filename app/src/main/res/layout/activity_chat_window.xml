@@ -10,18 +10,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.csit.data_transfer_via_sound.ChatWindow">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
-
     <Button
         android:text="Start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="174dp"
+        android:id="@+id/record"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
-        android:id="@+id/record" />
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/record"
+        android:layout_alignEnd="@+id/record"
+        android:layout_marginBottom="48dp"
+        android:id="@+id/playAudio" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Message"
+        android:ems="10"
+        android:id="@+id/textWindow"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

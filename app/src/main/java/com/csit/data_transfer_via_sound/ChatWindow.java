@@ -6,14 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import java.io.ByteArrayInputStream;
-import java.nio.charset.Charset;
+import android.widget.EditText;
 
 public class ChatWindow extends AppCompatActivity {
 
     /** Booleans **/
     private boolean isRecording = false;
+    private boolean isPlaying = false;
 
     /** Permission Variables **/
     private int readPermission;
@@ -21,16 +20,17 @@ public class ChatWindow extends AppCompatActivity {
     private int recordPermission;
 
     /** String Variables **/
-    String message = "Hello World, Marmik Shah";
-    byte[] messageInByteArray = new byte[0];
 
-    /** Sound Generation & Recordin **/
+    /** Sound Generation & Recording **/
     Record recorder;
-
+    Tone myTone;
 
 
     /** UI Objects **/
     Button record;
+    Button play;
+
+    EditText chatBox;
 
 
 
@@ -43,36 +43,73 @@ public class ChatWindow extends AppCompatActivity {
         record = getRecord();
         setRecordListener();
         //---------------------
+
+        //Play Button, allocateMemory and setListener
+        play = getPlay();
+        setPlayListener();
+        //---------------------
+
+        //Chat Box, allocateMemory and setListener
+        chatBox = getChatBox();
+
+        //---------------------
         recorder = new Record();
         checkForPermissions();
-        messageInByteArray = message.getBytes(Charset.forName("UTF-8"));
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(messageInByteArray);
-        Tone myTone = new Tone(message);
-        myTone.playTone();
+
+
     }
 
 
 
     /** Listeners & UI Setup **/
-    public Button getRecord(){
+    // Record Button
+    private Button getRecord(){
         return (Button)findViewById(R.id.record);
     }
-    public void setRecordListener (){
+    private void setRecordListener (){
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(isRecording) {
                     isRecording = false;
+                    record.setText("Stop");
                     recorder.stopRecording();
                 } else {
                     isRecording = true;
+                    record.setText("Start");
+                    System.out.print(isRecording);
                     recorder.startRecording();
                 }
             }
         });
     }
 
+    //Play Button
+    private Button getPlay() {
+        return (Button)findViewById(R.id.playAudio);
+    }
+    private void setPlayListener(){
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isPlaying) {
+                    isPlaying = true;
+                    play.setText("Stop");
+                    myTone = new Tone("H");
+                    myTone.playTone();
+                } else {
+                    myTone.stopTone();
+                    play.setText("Play");
+                    isPlaying = false;
+                }
+            }
+        });
+    }
 
+    //Chat Box
+    private EditText getChatBox(){
+        return (EditText) findViewById(R.id.textView);
+    }
 
     /** Permission Handing **/
 

@@ -42,23 +42,21 @@ public class Tone {
                 int amp = 10000;
                 double twopi = 8. * Math.atan(1.);
                 double fr = 440.f;
-
                 audioTrack.play();
                 short c = (short)message.charAt(0);
-                while (c!=message.charAt(message.length()-1)) {
+                while (isRunning) {
                     for (int j = 0;j<message.length();j++){
                         c = (short)message.charAt(j);
-                        Log.d("",c+"");
                         double ph = 0.0;
                         int part = buffsize/message.length() * j;
                         for (int i = 0; i < buffsize; i++) {
 
                             short s = (short) (amp * Math.sin(ph));
                             if (s > 0.0) {
-                                samples[i] = (short)(32767 - (c * 100 * (j+1)));
+                                samples[i] = (short)(32767 - (c * 100));
                             }
                             if (s < 0.0) {
-                                samples[i] = (short)(-32767 + (c * 100 * (j+1)));
+                                samples[i] = (short)(-32767 + (c * 100));
                             }
                             System.out.println(samples[i]);
                             ph += twopi * fr / samplingRate;
