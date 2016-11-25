@@ -95,7 +95,7 @@ public class ChatWindow extends AppCompatActivity {
                 if(!isPlaying) {
                     isPlaying = true;
                     play.setText("Stop");
-                    myTone = new Tone("H");
+                    myTone = new Tone("hello");
                     myTone.playTone();
                 } else {
                     myTone.stopTone();

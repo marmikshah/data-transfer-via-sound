@@ -3,7 +3,10 @@ package com.csit.data_transfer_via_sound;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
+import android.media.effect.Effect;
 import android.util.Log;
+
+import static java.lang.Math.sin;
 
 /**
  * Created by kaizoku on 21/11/2016.
@@ -19,51 +22,37 @@ public class Tone {
         this.message = "Hello World";
     }
 
-    public Tone(String message) {
+    Tone(String message) {
         this.message = message;
     }
 
-    public void playTone(){
+    void playTone(){
         t = new Thread() {
             public void run(){
                 isRunning = true;
                 setPriority(Thread.MAX_PRIORITY);
                 int buffsize = AudioTrack.getMinBufferSize(samplingRate,
                         AudioFormat.CHANNEL_OUT_MONO,
-                        AudioFormat.ENCODING_PCM_16BIT);
-                // create an audiotrack object
+                        AudioFormat.ENCODING_PCM_16BIT) ;
+
                 AudioTrack audioTrack = new AudioTrack(
                         AudioManager.STREAM_MUSIC, samplingRate,
                         AudioFormat.CHANNEL_OUT_MONO,
                         AudioFormat.ENCODING_PCM_16BIT, buffsize,
                         AudioTrack.MODE_STREAM);
 
-                short samples[] = new short[buffsize];
-                int amp = 10000;
-                double twopi = 8. * Math.atan(1.);
-                double fr = 440.f;
                 audioTrack.play();
-                short c = (short)message.charAt(0);
-                while (isRunning) {
-                    for (int j = 0;j<message.length();j++){
-                        c = (short)message.charAt(j);
-                        double ph = 0.0;
-                        int part = buffsize/message.length() * j;
-                        for (int i = 0; i < buffsize; i++) {
+                audioTrack.write(generateSineInTimeDomain(1,10240,1,buffsize),0,buffsize);
 
-                            short s = (short) (amp * Math.sin(ph));
-                            if (s > 0.0) {
-                                samples[i] = (short)(32767 - (c * 100));
-                            }
-                            if (s < 0.0) {
-                                samples[i] = (short)(-32767 + (c * 100));
-                            }
-                            System.out.println(samples[i]);
-                            ph += twopi * fr / samplingRate;
-                        }
+                    for (int i = 0; i < message.length(); i++) {
+                        int stepValue = ((int)message.charAt(i)-97) * 256;
+                        int frequency = 1024 + stepValue;
+                        short[] samples = generateSineInTimeDomain(1,frequency,1,buffsize);
+                        audioTrack.write(samples,0,buffsize);
                     }
-                    audioTrack.write(samples, 0, buffsize);
-                }
+
+
+                audioTrack.write(generateSineInTimeDomain(1,9216,1,buffsize),0,buffsize);
                 audioTrack.stop();
                 audioTrack.release();
             }
@@ -71,7 +60,7 @@ public class Tone {
         t.start();
     }
 
-    public void stopTone(){
+    void stopTone(){
         isRunning = false;
         try {
             t.join();
@@ -81,4 +70,15 @@ public class Tone {
         t = null;
     }
 
+
+
+    private short[] generateSineInTimeDomain(float amplitude, float frequency, float duration, int bufferSize) {
+        short sample[] = new short[bufferSize];
+        int samplesToGenerate = (int)(duration * samplingRate);
+        for(int i = 0; i < samplesToGenerate && i < sample.length; ++i) {
+            float currentTime = (float)(i) / samplingRate;
+            sample[i] = (short) (Short.MAX_VALUE * sin(Math.PI * 2 * frequency * currentTime));
+        }
+        return sample;
+    }
 }
