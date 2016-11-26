@@ -33,7 +33,6 @@ public class Record {
                 recorder.startRecording();
                 while(isRecording) {
                     recorder.read(data, 0, data.length);
-
                     if(data[0] != 0 ) {
                         frequency = frequencyScanner.extractFrequency(data, 44100);
                         Decode decoder = new Decode(frequency);
@@ -42,22 +41,8 @@ public class Record {
                         if(alphabet == '-') {
 
                         } else {
-
                             message.append(alphabet);
                         }
-//                        if (hasBegun) {
-//
-//                        } else {
-//                            if(frequency <= 10340 && frequency >= 10140  ) {
-//                                hasBegun = true;
-//                                System.out.print("Has Begun");
-//                            }
-//                            if(frequency >= 9126 && frequency <= 9316) {
-//                                hasBegun = false;
-//                                System.out.print("Message Over");
-//                                stopRecording();
-//                            }
-//                        }
                     }
                 }
                 recorder.stop();
@@ -77,7 +62,4 @@ public class Record {
         r = null;
         return message.toString();
     }
-
-    
-
 }

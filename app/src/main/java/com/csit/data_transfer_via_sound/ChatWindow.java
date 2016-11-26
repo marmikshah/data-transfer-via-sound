@@ -36,6 +36,8 @@ public class ChatWindow extends AppCompatActivity {
     TextView messageBox;
 
 
+    String message;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +83,8 @@ public class ChatWindow extends AppCompatActivity {
                 if(isRecording) {
                     isRecording = false;
                     record.setText("Stop");
-                    messageBox.setText(recorder.stopRecording());
+                    message = recorder.stopRecording();
+                    messageBox.setText(decodeString());
                 } else {
                     isRecording = true;
                     record.setText("Start");
@@ -103,7 +106,7 @@ public class ChatWindow extends AppCompatActivity {
                 if(!isPlaying) {
                     isPlaying = true;
                     play.setText("Stop");
-                    myTone = new Tone("david");
+                    myTone = new Tone(chatBox.getText().toString());
                     myTone.playTone();
                 } else {
                     myTone.stopTone();
@@ -142,6 +145,23 @@ public class ChatWindow extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO},recordPermission);
     }
 
-
+    private String decodeString(){
+        StringBuffer formattedMessage = new StringBuffer("");
+        System.out.println("Final message : " + message);
+        for(int i = 0;i<message.length();i++) {
+            //Find count of alphabet
+            char alpha = message.charAt(i);
+            char bet = alpha;
+            int j = i;
+            while(bet != '~' && j<message.length()){
+                bet = message.charAt(j);
+                j++;
+            }
+            i = j;
+            formattedMessage.append(alpha);
+        }
+        System.out.println(formattedMessage);
+        return formattedMessage.toString();
+    }
 }
 
