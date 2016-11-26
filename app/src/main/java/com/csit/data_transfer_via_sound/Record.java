@@ -13,6 +13,7 @@ import android.util.Log;
 public class Record {
 
     Thread r;
+    public StringBuffer message = new StringBuffer();
     FrequencyScanner frequencyScanner = new FrequencyScanner();
     private Boolean isRecording = false;
     public void startRecording(){
@@ -32,29 +33,17 @@ public class Record {
                 recorder.startRecording();
                 while(isRecording) {
                     recorder.read(data, 0, data.length);
-//                  -  for (int i=0;i<data.length;i++) {
-//                        System.out.println(data[i]);
-//                    }
-//                    for(int i = 0;i < data.length;i++) {
-//
-//                    }
-                    /*if(data[0] > 0 ){
-                        int c = (-data[0] + 32767)/100;
-                        System.out.println((char)c);
-                    }
-                    if(data[0] < 0) {
-                        int c = (data[0] - 32767)/100;
-                        System.out.println((char)c);
-                    }*/
+
                     if(data[0] != 0 ) {
                         frequency = frequencyScanner.extractFrequency(data, 44100);
-                        System.out.println((int)frequency + "      ");
                         Decode decoder = new Decode(frequency);
                         char alphabet = decoder.convertFrequencyToArray();
+                        System.out.println(alphabet + "  :  " + frequency);
                         if(alphabet == '-') {
 
                         } else {
-                            System.out.print(alphabet);
+
+                            message.append(alphabet);
                         }
 //                        if (hasBegun) {
 //
@@ -78,7 +67,7 @@ public class Record {
         r.start();
     }
 
-    public void stopRecording(){
+    public String stopRecording(){
         isRecording = false;
         try {
             r.join();
@@ -86,7 +75,9 @@ public class Record {
             e.printStackTrace();
         }
         r = null;
+        return message.toString();
     }
 
+    
 
 }

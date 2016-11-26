@@ -10,31 +10,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.csit.data_transfer_via_sound.ChatWindow">
 
-    <Button
-        android:text="Start"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="174dp"
-        android:id="@+id/record"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/chatBox"
+        android:contentDescription="Enter Message"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/playAudio" />
 
     <Button
         android:text="Play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/record"
-        android:layout_alignEnd="@+id/record"
-        android:layout_marginBottom="48dp"
-        android:id="@+id/playAudio" />
+        android:id="@+id/playAudio"
+        android:layout_alignBaseline="@+id/chatBox"
+        android:layout_alignBottom="@+id/chatBox"
+        android:layout_alignParentEnd="true" />
 
-    <EditText
+    <Button
+        android:text="Start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Enter Message"
-        android:ems="10"
-        android:id="@+id/textWindow"
+        android:id="@+id/record"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:id="@+id/messageBox"
+        android:layout_toStartOf="@+id/playAudio"
+        android:layout_alignBottom="@+id/record"
+        android:layout_alignParentTop="true" />
 </RelativeLayout>

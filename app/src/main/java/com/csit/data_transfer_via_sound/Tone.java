@@ -14,12 +14,14 @@ import static java.lang.Math.sin;
 
 public class Tone {
     Thread t;
-    int samplingRate = 44100;
     boolean isRunning = false;
     String message;
+    static final int samplingRate = 44100;
+    static final float duration = 1f;
+    static final int sample_size = Math.round(duration * samplingRate);
 
     public Tone() {
-        this.message = "Hello World";
+        this.message = "abcdefghijklmnopqrstuvwxyz";
     }
 
     Tone(String message) {
@@ -31,33 +33,33 @@ public class Tone {
             public void run(){
                 isRunning = true;
                 setPriority(Thread.MAX_PRIORITY);
-                int buffsize = AudioTrack.getMinBufferSize(samplingRate,
-                        AudioFormat.CHANNEL_OUT_MONO,
-                        AudioFormat.ENCODING_PCM_16BIT) ;
+
 
                 AudioTrack audioTrack = new AudioTrack(
                         AudioManager.STREAM_MUSIC, samplingRate,
                         AudioFormat.CHANNEL_OUT_MONO,
-                        AudioFormat.ENCODING_PCM_16BIT, buffsize,
+                        AudioFormat.ENCODING_PCM_16BIT, sample_size,
                         AudioTrack.MODE_STREAM);
 
                 audioTrack.play();
-                audioTrack.write(generateSineInTimeDomain(1,10240,1,buffsize),0,buffsize);
+                audioTrack.write(generateSineInTimeDomain(10240),0,sample_size/2);
 
                     for (int i = 0; i < message.length(); i++) {
                         int stepValue = ((int)message.charAt(i)-97) * 256;
                         int frequency = 1024 + stepValue;
-                        short[] samples = generateSineInTimeDomain(1,frequency,1,buffsize);
-                        audioTrack.write(samples,0,buffsize);
+                        short[] samples = generateSineInTimeDomain(frequency);
+                        audioTrack.write(samples,0,sample_size/2);
                     }
 
 
-                audioTrack.write(generateSineInTimeDomain(1,9216,1,buffsize),0,buffsize);
+                audioTrack.write(generateSineInTimeDomain(9216),0,sample_size/2);
                 audioTrack.stop();
                 audioTrack.release();
             }
         };
+
         t.start();
+
     }
 
     void stopTone(){
@@ -72,13 +74,14 @@ public class Tone {
 
 
 
-    private short[] generateSineInTimeDomain(float amplitude, float frequency, float duration, int bufferSize) {
-        short sample[] = new short[bufferSize];
-        int samplesToGenerate = (int)(duration * samplingRate);
-        for(int i = 0; i < samplesToGenerate && i < sample.length; ++i) {
+    private short[] generateSineInTimeDomain(float frequency) {
+        short sample[] = new short[sample_size/2];
+        for(int i = 0; i < sample.length; ++i) {
             float currentTime = (float)(i) / samplingRate;
             sample[i] = (short) (Short.MAX_VALUE * sin(Math.PI * 2 * frequency * currentTime));
         }
         return sample;
     }
+
+
 }

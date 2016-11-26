@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class ChatWindow extends AppCompatActivity {
 
@@ -32,6 +33,8 @@ public class ChatWindow extends AppCompatActivity {
 
     EditText chatBox;
 
+    TextView messageBox;
+
 
 
     @Override
@@ -51,6 +54,10 @@ public class ChatWindow extends AppCompatActivity {
 
         //Chat Box, allocateMemory and setListener
         chatBox = getChatBox();
+        chatBox.setHint("Enter Message");
+
+        //Message Box
+        messageBox = getMessageBox();
 
         //---------------------
         recorder = new Record();
@@ -67,13 +74,14 @@ public class ChatWindow extends AppCompatActivity {
         return (Button)findViewById(R.id.record);
     }
     private void setRecordListener (){
+
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(isRecording) {
                     isRecording = false;
                     record.setText("Stop");
-                    recorder.stopRecording();
+                    messageBox.setText(recorder.stopRecording());
                 } else {
                     isRecording = true;
                     record.setText("Start");
@@ -95,7 +103,7 @@ public class ChatWindow extends AppCompatActivity {
                 if(!isPlaying) {
                     isPlaying = true;
                     play.setText("Stop");
-                    myTone = new Tone("hello");
+                    myTone = new Tone("david");
                     myTone.playTone();
                 } else {
                     myTone.stopTone();
@@ -108,8 +116,11 @@ public class ChatWindow extends AppCompatActivity {
 
     //Chat Box
     private EditText getChatBox(){
-        return (EditText) findViewById(R.id.textView);
+        return (EditText) findViewById(R.id.chatBox);
     }
+
+    //Message Box
+    private TextView getMessageBox(){ return (TextView)findViewById(R.id.messageBox); }
 
     /** Permission Handing **/
 
@@ -130,8 +141,6 @@ public class ChatWindow extends AppCompatActivity {
     protected  void getRecordPermission(){
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO},recordPermission);
     }
-
-
 
 
 }
