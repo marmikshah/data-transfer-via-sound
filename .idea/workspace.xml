@@ -9,13 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abbad56d-1bb2-46ca-aebb-034ec3bb1565" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/ASCIIBreaker.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/ASCIIBreaker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/Decode.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/Decode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/Record.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/Record.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/Tone.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/Tone.java" />
-    </list>
+    <list default="true" id="abbad56d-1bb2-46ca-aebb-034ec3bb1565" name="Default" comment="" />
     <ignored path="Data-Transfer-Via-Sound.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,8 +109,8 @@
       <file leaf-file-name="Record.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/Record.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="128" column="32" selection-start-line="128" selection-start-column="32" selection-end-line="128" selection-end-column="32" />
+            <state relative-caret-position="105">
+              <caret line="7" column="68" selection-start-line="4" selection-start-column="3" selection-end-line="7" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1598#1606#0" expanded="true" />
@@ -2722,8 +2716,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/csit/data_transfer_via_sound/Record.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="128" column="32" selection-start-line="128" selection-start-column="32" selection-end-line="128" selection-end-column="32" />
+        <state relative-caret-position="105">
+          <caret line="7" column="68" selection-start-line="4" selection-start-column="3" selection-end-line="7" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1598#1606#0" expanded="true" />
