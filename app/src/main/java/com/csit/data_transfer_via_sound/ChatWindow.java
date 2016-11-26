@@ -50,8 +50,6 @@ public class ChatWindow extends AppCompatActivity {
     private boolean isPlaying = false;
 
     /** Permission Variables **/
-    private int readPermission;
-    private int writePermission;
     private int recordPermission;
 
     /** String Variables **/
@@ -126,7 +124,7 @@ public class ChatWindow extends AppCompatActivity {
                     isRecording = false;
                     record.setText("Stop");
                     message = recorder.stopRecording();
-                    messageBox.setText(decodeString());
+                    messageBox.setText(message);
                 } else {
                     isRecording = true;
                     record.setText("Start");
@@ -135,7 +133,6 @@ public class ChatWindow extends AppCompatActivity {
             }
         });
     }
-
 
     // Play Button
     // Get the button object from View -- >
@@ -195,7 +192,6 @@ public class ChatWindow extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO},recordPermission);
     }
 
-
     /**
      *
      * This function decodes the final message which is received from another device.
@@ -223,4 +219,3 @@ public class ChatWindow extends AppCompatActivity {
         return formattedMessage.toString();
     }
 }
-

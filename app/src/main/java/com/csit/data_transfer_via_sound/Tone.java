@@ -23,12 +23,13 @@ public class Tone {
 
 
     Tone(String message) {
-        StringBuffer newString = new StringBuffer();
-        for(int i=0;i<message.length();i++) {
-            newString.append(message.charAt(i) + "~");
-        }
-        this.message = newString.toString();
-        System.out.print(this.message);
+//        StringBuffer newString = new StringBuffer();
+//        for(int i=0;i<message.length();i++) {
+//            newString.append(message.charAt(i) + "~");
+//        }
+//        this.message = newString.toString();
+        this.message = message;
+        //System.out.print(this.message);
     }
 
     void playTone(){
@@ -45,19 +46,25 @@ public class Tone {
                         AudioTrack.MODE_STREAM);
 
                 audioTrack.play();
-                audioTrack.write(generateSineInTimeDomain(10240),0,sample_size/2);
-
                     for (int i = 0; i < message.length(); i++) {
-                        if(message.charAt(i) == ' ') {
-                            System.out.println("Space");
-                            short[] samples = generateSineInTimeDomain(7700);
-                            audioTrack.write(samples,0,sample_size/2);
-                            continue;
+//                        System.out.println(message.charAt(i));
+                        ASCIIBreaker breaker = new ASCIIBreaker((int)message.charAt(i));
+                        int frequencies[] = breaker.ASCIIToFrequency();
+                        for(int fre : frequencies){
+                            //System.out.println(fre);
+                            audioTrack.write(generateSineInTimeDomain(fre),0,sample_size/2);
                         }
-                        int stepValue = ((int)message.charAt(i)-97) * 256;
-                        int frequency = 1024 + stepValue;
-                        short[] samples = generateSineInTimeDomain(frequency);
-                        audioTrack.write(samples,0,sample_size/2);
+                        audioTrack.write(generateSineInTimeDomain(7000),0,sample_size/2);
+//                        if(message.charAt(i) == ' ') {
+//                            System.out.println("Space");
+//                            short[] samples = generateSineInTimeDomain(7700);
+//                            audioTrack.write(samples,0,sample_size/2);
+//                            continue;
+//                        }
+//                        int stepValue = ((int)message.charAt(i)-97) * 256;
+//                        int frequency = 1024 + stepValue;
+//                        short[] samples = generateSineInTimeDomain(frequency);
+//                        audioTrack.write(samples,0,sample_size/2);
                     }
 
                 audioTrack.stop();
@@ -89,7 +96,6 @@ public class Tone {
         }
         return sample;
     }
-
 
 
 }

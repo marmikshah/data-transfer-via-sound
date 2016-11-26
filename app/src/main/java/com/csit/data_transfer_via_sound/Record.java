@@ -1,10 +1,14 @@
 
 package com.csit.data_transfer_via_sound;
 
+import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
+import android.support.annotation.IntegerRes;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 /**
  * Created by kaizoku on 21/11/2016.
@@ -17,7 +21,7 @@ public class Record {
     FrequencyScanner frequencyScanner = new FrequencyScanner();
     private Boolean isRecording = false;
     public void startRecording(){
-        System.out.print(isRecording);
+        //System.out.print(isRecording);
 
         isRecording = true;
         r = new Thread(){
@@ -31,20 +35,49 @@ public class Record {
                 short data[] = new short[minBufferSize];
                 double frequency;
                 recorder.startRecording();
+                ArrayList<String> frequencyToNumber = new ArrayList<String>();
+                ASCIIBreaker builder = new ASCIIBreaker();
+                StringBuffer tempString = new StringBuffer();
+                boolean hasAppended = false;
+
                 while(isRecording) {
                     recorder.read(data, 0, data.length);
                     if(data[0] != 0 ) {
                         frequency = frequencyScanner.extractFrequency(data, 44100);
-                        Decode decoder = new Decode(frequency);
-                        char alphabet = decoder.convertFrequencyToArray();
-                        System.out.println(alphabet + "  :  " + frequency);
-                        if(alphabet == '-') {
+                        if(frequency >= 896 && frequency <= 5770 && !hasAppended ) {
+                            int num = builder.frequencyToNumber((int) frequency);
+                            System.out.println("Num : " + num);
+                            tempString.append(num);
+                            hasAppended = true;
+                        } else if (frequency > 6900 && frequency < 7100){
+                            //Character over
+                            if(!tempString.toString().equals(""))
+                            message.append((char)Integer.parseInt(tempString.toString()));
+                           // System.out.println("Fre - > Number : " + frequencyToNumber.toString());
+                            //System.out.print(message);
+//                            hasAppended = false;
+                            System.out.println(message);
+                            frequencyToNumber.add(tempString.toString());
+                            tempString = new StringBuffer();
 
+                            System.out.println("Fre --> Num : " + tempString);
+                        } else if(frequency >= 8970 && frequency <= 9030) {
+                            hasAppended = false;
                         } else {
-                            message.append(alphabet);
+                            System.out.println(tempString);
                         }
+//                        Decode decoder = new Decode(frequency);
+//                        char alphabet = decoder.convertFrequencyToArray();
+//                        System.out.println(alphabet + "  :  " + frequency);
+//                        if(alphabet == '-') {
+//
+//                        } else {
+//                            message.append(alphabet);
+//                        }
                     }
+
                 }
+
                 recorder.stop();
                 recorder.release();
             }
@@ -62,4 +95,6 @@ public class Record {
         r = null;
         return message.toString();
     }
+
+
 }
