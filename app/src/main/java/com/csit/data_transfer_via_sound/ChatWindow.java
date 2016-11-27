@@ -122,13 +122,23 @@ public class ChatWindow extends AppCompatActivity {
             public void onClick(View view) {
                 if(isRecording) {
                     isRecording = false;
-                    record.setText("Stop");
+                    record.setText("Start");
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     message = recorder.stopRecording();
                     messageBox.setText(message);
                 } else {
                     isRecording = true;
-                    record.setText("Start");
-                    recorder.startRecording();
+                    record.setText("Stop");
+                    try {
+                        Thread.sleep(100);
+                        recorder.startRecording();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -159,6 +169,11 @@ public class ChatWindow extends AppCompatActivity {
                     isPlaying = true;
 
                     play.setText("Stop");
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
                     myTone = new Tone(chatBox.getText().toString());
                     myTone.playTone();
@@ -166,6 +181,12 @@ public class ChatWindow extends AppCompatActivity {
                 } else {
                     isPlaying = false;
                     play.setText("Play");
+                    try {
+                        Thread.sleep(100);
+                        myTone.audioTrack.stop();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     myTone.stopTone();
                 }
             }
