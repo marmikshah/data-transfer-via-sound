@@ -97,6 +97,7 @@ public class ASCIIBreaker {
      *
      * **/
 
+
     private int indexOf(int digit){
         for(int i = 0;i<numbers.length;i++){
             if(numbers[i] == digit) {

@@ -45,7 +45,7 @@ public class Tone {
     String message;
 
     // Float
-    static final float duration = 1f;
+    static final float duration = 0.5f;
 
     // Integer
     static final int samplingRate = 44100;
@@ -54,10 +54,16 @@ public class Tone {
     /** Thread **/
     Thread t;
 
+    AudioTrack audioTrack = new AudioTrack(
+            AudioManager.STREAM_MUSIC, samplingRate,
+            AudioFormat.CHANNEL_OUT_MONO,
+            AudioFormat.ENCODING_PCM_16BIT, sample_size,
+            AudioTrack.MODE_STREAM);
 
     Tone(String message) {
         this.message = message;
     }
+
 
 
     /**
@@ -86,11 +92,7 @@ public class Tone {
                 isRunning = true;
                 setPriority(Thread.MAX_PRIORITY);
 
-                AudioTrack audioTrack = new AudioTrack(
-                        AudioManager.STREAM_MUSIC, samplingRate,
-                        AudioFormat.CHANNEL_OUT_MONO,
-                        AudioFormat.ENCODING_PCM_16BIT, sample_size,
-                        AudioTrack.MODE_STREAM);
+
 
                 audioTrack.play();
 
@@ -102,10 +104,10 @@ public class Tone {
 
                         //Generate waves for all different frequencies
                         for(int fre : frequencies) {
-                            audioTrack.write(generateSineInTimeDomain(fre),0,sample_size/2);
+                            audioTrack.write(generateSineInTimeDomain(fre),0,sample_size);
                         }
 
-                        audioTrack.write(generateSineInTimeDomain(7000),0,sample_size/2);
+                        audioTrack.write(generateSineInTimeDomain(7000),0,sample_size);
                     }
 
                 audioTrack.stop();
@@ -144,7 +146,7 @@ public class Tone {
      *  **/
 
     private short[] generateSineInTimeDomain(float frequency) {
-        short sample[] = new short[sample_size/2];
+        short sample[] = new short[sample_size];
         for(int i = 0; i < sample.length; ++i) {
             float currentTime = (float)(i) / samplingRate;
             sample[i] = (short) (Short.MAX_VALUE * sin(Math.PI * 2 * frequency * currentTime));
