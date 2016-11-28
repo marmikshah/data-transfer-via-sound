@@ -122,7 +122,7 @@ public class ChatWindow extends AppCompatActivity {
             public void onClick(View view) {
                 if(isRecording) {
                     isRecording = false;
-
+                    message  =  new String();
                     record.setText("Start");
                     try {
                         Thread.sleep(100);

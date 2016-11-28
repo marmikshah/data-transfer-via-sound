@@ -82,7 +82,7 @@ public class Record {
      * **/
 
     void startRecording(){
-
+        message = new StringBuffer();
         isRecording = true;
 
         r = new Thread(){
