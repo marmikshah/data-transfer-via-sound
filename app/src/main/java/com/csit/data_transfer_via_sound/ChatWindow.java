@@ -122,6 +122,7 @@ public class ChatWindow extends AppCompatActivity {
             public void onClick(View view) {
                 if(isRecording) {
                     isRecording = false;
+
                     record.setText("Start");
                     try {
                         Thread.sleep(100);
@@ -132,6 +133,8 @@ public class ChatWindow extends AppCompatActivity {
                     messageBox.setText(message);
                 } else {
                     isRecording = true;
+                    messageBox.setText("");
+                    messageBox.setHint("Receiving Message...");
                     record.setText("Stop");
                     try {
                         Thread.sleep(100);
@@ -183,7 +186,11 @@ public class ChatWindow extends AppCompatActivity {
                     play.setText("Play");
                     try {
                         Thread.sleep(100);
-                        myTone.audioTrack.stop();
+                        try {
+                            myTone.audioTrack.stop();
+                        } catch (IllegalStateException e) {
+                            e.printStackTrace();
+                        }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

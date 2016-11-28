@@ -47,5 +47,6 @@
         android:id="@+id/messageBox"
         android:layout_toStartOf="@+id/playAudio"
         android:layout_alignBottom="@+id/record"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:textSize="24sp" />
 </RelativeLayout>
